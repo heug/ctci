@@ -2,6 +2,8 @@
 
 var rotateMatrix = function(arr) {
 
+for (var i = 0; i < arr)
+
 	return arr;
 }
 
@@ -14,3 +16,7 @@ console.log(rotateMatrix([[1,2,3],[4,5,6],[7,8,9]]))
 741
 852
 963
+
+
+0,0 => 0,2
+0,2 => 2,2
