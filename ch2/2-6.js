@@ -1,6 +1,4 @@
-// Sum lists: You ahve two #s represented by a linked list, where each node contains a single
-// digit. The digits are stored in reverse order, such that the 1's digit is at the head of the list
-// Write a fn that adds the 2 numbers and returns the sum as a linked list.
+// Palindrome: Implement a function to check if a linked list is a palindrome
 
 var Node = function(value) {
   var node = {};
@@ -57,33 +55,28 @@ var LinkedList = function() {
   return list;
 };
 
-var sumLists = function(a, b) {
-	var currentA = a.head;
-	var currentB = b.head;
-	var tens = 1;
-	var answer = 0;
-
-	while (currentA || currentB) {
-		answer += ((currentA ? currentA.value : 0) + (currentB ? currentB.value : 0)) * tens;
-		tens *= 10;
-		currentA = currentA.next;
-		currentB = currentB.next;
+var palindromeCheck = function(list) {
+	var current = list.head;
+	var store = [];
+	while (current) {
+		store.push(current.value);
+		current = current.next;
 	}
 
-	return answer;
+	for (var i = 0; i < (store.length / 2); i++) {
+		if (store[i] !== store[store.length - 1 - i]) {
+			return false;
+		}
+	}
 
-};
+	return true;
 
+}
 
 var tester = new LinkedList();
 tester.addToTail(9);
 tester.addToTail(2);
 tester.addToTail(3);
-tester.addToTail(4);
-var tester2 = new LinkedList();
-tester2.addToTail(9);
-tester2.addToTail(2); 
-tester2.addToTail(3);
-tester2.addToTail(4);
-
-console.log(sumLists(tester, tester2));
+tester.addToTail(2);
+tester.addToTail(9);
+console.log(palindromeCheck(tester));
